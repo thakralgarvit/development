@@ -1,21 +1,60 @@
-caption{
-    color: orange;
+#mainTopic{
+    color: #FF9F1C;
 }
-h2{
-    color: orange;
+*{
+    text-align: center;
+    background-color: #CBF3F0;
+}
+h1, h3{
+    font-family: Georgia;
+}
+main > p {
+    background-color: #2EC4B6;
+    color: #FFFFFF;
 }
 button{
-    color: white;
-    background-color: blue;
+    background-color: #2EC4B6;
+    color: #FFBF69;
+    font-weight: bold;
 }
-h1{
-    font-family: league spartan;
-    color: #ffa511;
+button:hover {
+    background-color: #FFBF69;
+    color: #2EC4B6;
+}
+p:nth-of-type(odd){
+    background-color: #FFBF69;
+    color: #2EC4B6;
+}
+h1::first-letter{
+    color: #2EC4B6;
+}
+#yes:checked+label{
+    color: #FF9F1C;
+}
+#no:checked+label{
+    color: #FF9F1C;
+}
+li{
     text-align: center;
-    font-size: 55px;
-    font-weight: 900;
-    letter-spacing: 2px;
-    line-height: 1.5;
-    text-decoration: teal double underline;
-    text-transform: uppercase;
+}
+#light{
+    width: 70px;
+    height: 200px;
+    border: 2px solid black;
+}
+.circle{
+    height: 50px;
+    width: 50px;
+    border: 2px solid black;
+    margin: 10px;
+    border-radius: 50%;
+}
+#circle1{
+    background-color: red;
+}
+#circle2{
+    background-color: yellow;
+}
+#circle3{
+    background-color: green;
 }
