@@ -1,60 +1,23 @@
-#mainTopic{
-    color: #FF9F1C;
+.card{
+    width: 200px;
+    box-shadow: 2px 2px 6px black;
+    display: inline-block;
+    border-radius: 10px;
+    transition: 1s;
+    margin-left: 12px;
 }
-*{
-    text-align: center;
-    background-color: #CBF3F0;
-}
-h1, h3{
-    font-family: Georgia;
-}
-main > p {
-    background-color: #2EC4B6;
-    color: #FFFFFF;
-}
-button{
-    background-color: #2EC4B6;
-    color: #FFBF69;
-    font-weight: bold;
-}
-button:hover {
-    background-color: #FFBF69;
-    color: #2EC4B6;
-}
-p:nth-of-type(odd){
-    background-color: #FFBF69;
-    color: #2EC4B6;
-}
-h1::first-letter{
-    color: #2EC4B6;
-}
-#yes:checked+label{
-    color: #FF9F1C;
-}
-#no:checked+label{
-    color: #FF9F1C;
-}
-li{
+.disc{
+    text-transform: capitalize;
+    padding: o 5px 0 5px;
     text-align: center;
 }
-#light{
-    width: 70px;
-    height: 200px;
-    border: 2px solid black;
+img{
+    width: inherit;
+    border-radius: 10px 10px 0 0;
 }
-.circle{
-    height: 50px;
-    width: 50px;
-    border: 2px solid black;
-    margin: 10px;
-    border-radius: 50%;
+.card:hover{
+    box-shadow: 4px 4px 12px rgb(255, 232, 20);
+    scale: 1.2;
+    transform: translate(10px, 50px);
 }
-#circle1{
-    background-color: red;
-}
-#circle2{
-    background-color: yellow;
-}
-#circle3{
-    background-color: green;
-}
+
