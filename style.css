@@ -1,23 +1,31 @@
-.card{
-    width: 200px;
-    box-shadow: 2px 2px 6px black;
-    display: inline-block;
+#border{
+    height: 400px;
+    width: 400px;
+    border: 2px solid lightcoral;
     border-radius: 10px;
-    transition: 1s;
-    margin-left: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
 }
-.disc{
-    text-transform: capitalize;
-    padding: o 5px 0 5px;
+.box{
+    height: 100px;
+    width: 100px;
+    border: 1.5px solid black;
+    border-radius: 8px;
+    background-color: gray;
     text-align: center;
 }
-img{
-    width: inherit;
-    border-radius: 10px 10px 0 0;
+#bar{
+    height: 50px;
+    width: 900px;
+    display: flex;
+    background-color: indianred;
+    border: 2px solid black;
+    border-radius: 10px;
+    align-items: center;
 }
-.card:hover{
-    box-shadow: 4px 4px 12px rgb(255, 232, 20);
-    scale: 1.2;
-    transform: translate(10px, 50px);
+.bar{
+    height: 50px;
+    width: 80px;
 }
-
