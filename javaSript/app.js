@@ -1,62 +1,61 @@
 
-// removing the n element
-let arr = [1,2,3,4,5,6,2,3];
-let n = 3;
-for(let i = 0; i<arr.length; i++) {
-    if(arr[i] == n) {
-        console.log(`index of element ${i}`)
-        arr.splice(i,1);
+// guess a randome number game
+const maxnum = prompt("plese enter the max value u want to play with.");
+
+const random = Math.floor(Math.random() * maxnum) +1 ;
+
+let guess = prompt("enter your guess: ");
+
+while(true) {
+    if(guess == "quit") {
+        console.log("quitting game");
+        break;
+    }
+    if(guess == random){
+        console.log("congo u won");
+        break;
+    } else if(guess < random) {
+        console.log("the num is smaller")
+    } else if(guess > random) {
+        console.log("mum is bigger")
+    } 
+    if(guess != random) {
+        console.log(guess, random);
+        guess = prompt(`your guess ${guess} is wrong plese try again.`)
     }
 }
-console.log(arr);
 
+// game of dice
+let p = prompt("white 'dice' to roll a dice or enter 'exit' to quit");
 
-
-// count the number of digits present
-console.log("--------------------");
-let num = 876723;
-let count = 0;
-let copy = num; 
-while (copy > 0) {
-    count++;
-    copy = Math.floor(copy/10);
-    console.log(count, copy);
-}
-console.log(`the leghth of the num is ${count}`);
-
-
-//find the sum of the digits ina number
-console.log("--------------");
-let nom = 287152;
-let sum = 0;
-let same = nom;
-while(same > 0) {
-    let  digit = same % 10;
-    sum += digit;
-    same = Math.floor(same/10);
-}
-console.log(`sum of num are: ${sum}`);
-
-
-//factorial of a num
-console.log("-------------")
-let m = 7;
-let factorial = 1;
-if(m == 1) {
-    console.log(1);
-} else {
-    for(let i = 1; i <= m; i++) {
-        factorial *= i;
+while(true) {
+    if(p === "dice") {
+        let dice = Math.floor(Math.random() * 6) + 1;
+        console.log(dice);
+        p = prompt("white 'dice' to roll a dice or enter 'exit' to quit"); 
+    } else if(p === "quit") {
+        console.log("quiting the game");
+        break;
+    } else {
+        console.log("invalid output");
+        p = prompt("white 'dice' to roll a dice or enter 'exit' to quit"); 
     }
-    console.log(factorial);
 }
 
-
-//find the largest num in array
-console.log("----------------")
-let err = [2,5,4,3,6,7,8,5,6,5,6,7,5,4,3,5,5,7,9,8,6,7,6,5,4,4,3];
-let largest = 0;
-for(let i = 0; i < err.length; i++) {
-    largest = Math.max(largest, err[i]);
+//creating a car as a object
+let car = {
+    name: "BMW",
+    model: "x1",
+    colour: "matt black"
 }
-console.log(largest);
+console.log(car.name);
+
+
+//creata object for a person and then chnage the value and also add a new property
+let person = {
+    name: "garvit",
+    age: 21,
+    city: "mumbai"
+}
+person.city = "new york";
+person.country = "united states";
