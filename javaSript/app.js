@@ -1,61 +1,91 @@
 
-// guess a randome number game
-const maxnum = prompt("plese enter the max value u want to play with.");
+// larger then the element
+let arr = [1,5,10,15,20,25,30];
+let n = 10;
 
-const random = Math.floor(Math.random() * maxnum) +1 ;
-
-let guess = prompt("enter your guess: ");
-
-while(true) {
-    if(guess == "quit") {
-        console.log("quitting game");
-        break;
+function larger(arr, n) {
+    let narr = [];
+    for(let i = 0; i < arr.length; i++) {
+        if(arr[i] > n) {
+            narr.push(arr[i]);
+        }
     }
-    if(guess == random){
-        console.log("congo u won");
-        break;
-    } else if(guess < random) {
-        console.log("the num is smaller")
-    } else if(guess > random) {
-        console.log("mum is bigger")
-    } 
-    if(guess != random) {
-        console.log(guess, random);
-        guess = prompt(`your guess ${guess} is wrong plese try again.`)
+    console.log(narr);
+}
+larger(arr, n); 
+
+
+//extract unque char
+let str = "abcdabcdefgggh";
+
+function extract(str) {
+    let nsrtr = "";
+    for(let i = 0; i < str.length; i++) {
+        let curr = str[i];
+        if(nsrtr.indexOf(curr) == -1) {
+            nsrtr += curr;
+        } 
     }
+    console.log(nsrtr);
 }
 
-// game of dice
-let p = prompt("white 'dice' to roll a dice or enter 'exit' to quit");
+extract(str);
+     
 
-while(true) {
-    if(p === "dice") {
-        let dice = Math.floor(Math.random() * 6) + 1;
-        console.log(dice);
-        p = prompt("white 'dice' to roll a dice or enter 'exit' to quit"); 
-    } else if(p === "quit") {
-        console.log("quiting the game");
-        break;
-    } else {
-        console.log("invalid output");
-        p = prompt("white 'dice' to roll a dice or enter 'exit' to quit"); 
+// return the longest string
+let country = ["Australia","Germany","UnitedStatesofAmerica"];
+
+function longestName(country){
+    let largest = 0;
+    for(let i = 0; i < country.length; i++) {
+        let ansl = country[largest].length;
+        let ans = country[i].length;
+        if(ans > ansl) {
+            largest = i;
+        }
     }
+    return country[largest];
 }
 
-//creating a car as a object
-let car = {
-    name: "BMW",
-    model: "x1",
-    colour: "matt black"
-}
-console.log(car.name);
+console.log(longestName(country));
 
 
-//creata object for a person and then chnage the value and also add a new property
-let person = {
-    name: "garvit",
-    age: 21,
-    city: "mumbai"
+// to count the vowels in string
+let vol = "This is an example string containing multiple vowels."
+
+function countVo(str) {
+    const vowel = {
+        a: 0,
+        e: 0,
+        i: 0,
+        o: 0,
+        u: 0
+    }
+    for(let i = 0; i < str.length; i++) {
+        switch(str[i]) {
+            case 'a': vowel.a++;
+                break;
+            case 'e': vowel.e++;
+                break;
+            case 'i': vowel.i++;
+                break;
+            case 'o': vowel.o++;
+                break;
+            case 'u': vowel.u++;
+            break;
+            default: 
+                break;
+        }
+    }
+    return vowel;
 }
-person.city = "new york";
-person.country = "united states";
+console.log(countVo(vol));
+
+
+// creat a randome num from a range
+
+function randome(st, en) {
+    console.log(Math.floor(Math.random() * (en-1)) + st);
+}
+
+randome(2,8);
