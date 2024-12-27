@@ -1,72 +1,43 @@
-// average of nums in an array with arrow meathod
-const avg = (arr) => {
-    let total = 0;
-    for(let nums of arr) {
-        total += nums;
-    }
-    return total / arr.length;
-};
+// sq, sum the array el usking arraow then find out avg ok the array
+let arr = [1,2,3,4,5,6,7,8,9];
 
-const arr = [95, 93, 97];
-console.log(avg(arr));
+let sq = arr.map((el) => el * el);
+console.log(sq);
 
-// check if its even or not
-const iseven = (n) => {
-    if(n % 2 == 0 ) {
-        return console.log('even');
-    } else {
-        return console.log("odd");
-    }
-};
+let sum = sq.reduce((res, el) => res + el);
+console.log(sum);
 
-console.log(iseven(7));
+let avg = sum / arr.length;
+console.log(avg);
 
-// print marks from the 3 student as object
-let err = [
-    {
-        name: "garvit",
-        marks: 90
-    },
-    {
-        name: "yash",
-        marks: 88
-    },
-    {
-        name: "sabhay",
-        marks: 98
-    }
+// creat a new array with map with each el up by 5
+let err = [1,2,3,4,5,6,7,8,9];
+let up5 = err.map((el) => el + 5);
+console.log(up5);
+
+// creat a new array that have uppercase then the og array
+let name = ["garvit", "yash", "Butta", "sanduja", "sabhay", "veena", "simran"];
+let upper = name.map((string) => string.toUpperCase());
+console.log(upper);
+
+// write a function wich takes 2 arguments 1st array and print its original values and second as many values we want and double it before putting in anew array
+let yrr = [1,2,3,4,5,6,7];
+const double = (yrr, ...args) => [
+    ...yrr,
+    ...args.map((el) => el * 2),
 ];
+console.log(double(yrr,2,3,4,5,6,7));
 
-err.forEach((student) => {
-    console.log(student.marks)
-});
-
-// taking gpa of students with maping
-
-let gpa = err.map((el) => {
-    return el.marks / 10;
-});
-
-console.log(gpa);
-
-// taking out max num from an array using reduce fuction
-let wrr = [2, 4, 7, 1, 8, 4, 9, 6, 4, 3, 2, 6, 5, 7, 8, 2];
-let ans = wrr.reduce((max, el) => {
-    if(max < el) {
-        return el;
-    } else {
-        return max;
-    }
-});
-console.log(ans);
-
-//check if all the nums are multiples with 10 or not
-let yrr = [20, 50, 70, 120, 30, 35];
-let anss = yrr.every((el) => {
-    if(el % 10 == 0) {
-        return true;
-    } else {
-        return false;
-    }
-});
-console.log(anss);
+// merge object accept 2 object and return a new object which contain all key values
+let ob = {
+    name: "gugu",
+    age: 23,
+    class: 5
+};
+let bb = {
+    name: "yabu",
+    age: 24,
+    class: 4
+};
+let mergeob = (ob,bb) => ({...ob,...bb});
+console.log(mergeob(ob,bb));
