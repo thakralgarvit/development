@@ -1,91 +1,72 @@
-
-// larger then the element
-let arr = [1,5,10,15,20,25,30];
-let n = 10;
-
-function larger(arr, n) {
-    let narr = [];
-    for(let i = 0; i < arr.length; i++) {
-        if(arr[i] > n) {
-            narr.push(arr[i]);
-        }
+// average of nums in an array with arrow meathod
+const avg = (arr) => {
+    let total = 0;
+    for(let nums of arr) {
+        total += nums;
     }
-    console.log(narr);
-}
-larger(arr, n); 
+    return total / arr.length;
+};
 
+const arr = [95, 93, 97];
+console.log(avg(arr));
 
-//extract unque char
-let str = "abcdabcdefgggh";
-
-function extract(str) {
-    let nsrtr = "";
-    for(let i = 0; i < str.length; i++) {
-        let curr = str[i];
-        if(nsrtr.indexOf(curr) == -1) {
-            nsrtr += curr;
-        } 
+// check if its even or not
+const iseven = (n) => {
+    if(n % 2 == 0 ) {
+        return console.log('even');
+    } else {
+        return console.log("odd");
     }
-    console.log(nsrtr);
-}
+};
 
-extract(str);
-     
+console.log(iseven(7));
 
-// return the longest string
-let country = ["Australia","Germany","UnitedStatesofAmerica"];
-
-function longestName(country){
-    let largest = 0;
-    for(let i = 0; i < country.length; i++) {
-        let ansl = country[largest].length;
-        let ans = country[i].length;
-        if(ans > ansl) {
-            largest = i;
-        }
+// print marks from the 3 student as object
+let err = [
+    {
+        name: "garvit",
+        marks: 90
+    },
+    {
+        name: "yash",
+        marks: 88
+    },
+    {
+        name: "sabhay",
+        marks: 98
     }
-    return country[largest];
-}
+];
 
-console.log(longestName(country));
+err.forEach((student) => {
+    console.log(student.marks)
+});
 
+// taking gpa of students with maping
 
-// to count the vowels in string
-let vol = "This is an example string containing multiple vowels."
+let gpa = err.map((el) => {
+    return el.marks / 10;
+});
 
-function countVo(str) {
-    const vowel = {
-        a: 0,
-        e: 0,
-        i: 0,
-        o: 0,
-        u: 0
+console.log(gpa);
+
+// taking out max num from an array using reduce fuction
+let wrr = [2, 4, 7, 1, 8, 4, 9, 6, 4, 3, 2, 6, 5, 7, 8, 2];
+let ans = wrr.reduce((max, el) => {
+    if(max < el) {
+        return el;
+    } else {
+        return max;
     }
-    for(let i = 0; i < str.length; i++) {
-        switch(str[i]) {
-            case 'a': vowel.a++;
-                break;
-            case 'e': vowel.e++;
-                break;
-            case 'i': vowel.i++;
-                break;
-            case 'o': vowel.o++;
-                break;
-            case 'u': vowel.u++;
-            break;
-            default: 
-                break;
-        }
+});
+console.log(ans);
+
+//check if all the nums are multiples with 10 or not
+let yrr = [20, 50, 70, 120, 30, 35];
+let anss = yrr.every((el) => {
+    if(el % 10 == 0) {
+        return true;
+    } else {
+        return false;
     }
-    return vowel;
-}
-console.log(countVo(vol));
-
-
-// creat a randome num from a range
-
-function randome(st, en) {
-    console.log(Math.floor(Math.random() * (en-1)) + st);
-}
-
-randome(2,8);
+});
+console.log(anss);
