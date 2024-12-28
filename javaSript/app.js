@@ -1,43 +1,40 @@
-// sq, sum the array el usking arraow then find out avg ok the array
-let arr = [1,2,3,4,5,6,7,8,9];
+let para1 = document.createElement('p');
+para1.innerText = "hey i am red!!";
+document.querySelector("body").append(para1);
+para1.classList.add("red");
 
-let sq = arr.map((el) => el * el);
-console.log(sq);
+let high = document.createElement('h3');
+high.innerText =  "hey i am h3!!"
+document.querySelector("body").append(high);
+high.classList.add("green");
 
-let sum = sq.reduce((res, el) => res + el);
-console.log(sum);
+let div = document.createElement('div');
+let h1 = document.createElement('h1');
+let p = document.createElement('p');
 
-let avg = sum / arr.length;
-console.log(avg);
+h1.innerText = "i am in div";
+p.innerText = "me too";
 
-// creat a new array with map with each el up by 5
-let err = [1,2,3,4,5,6,7,8,9];
-let up5 = err.map((el) => el + 5);
-console.log(up5);
+document.querySelector("body").append(div);
+document.querySelector("div").append(h1, p);
 
-// creat a new array that have uppercase then the og array
-let name = ["garvit", "yash", "Butta", "sanduja", "sabhay", "veena", "simran"];
-let upper = name.map((string) => string.toUpperCase());
-console.log(upper);
+div.classList.add("boder");
 
-// write a function wich takes 2 arguments 1st array and print its original values and second as many values we want and double it before putting in anew array
-let yrr = [1,2,3,4,5,6,7];
-const double = (yrr, ...args) => [
-    ...yrr,
-    ...args.map((el) => el * 2),
-];
-console.log(double(yrr,2,3,4,5,6,7));
+let btn = document.createElement("button");
+let inner = document.createElement("input");
+document.querySelector("body").append(btn, inner);
+btn.innerText = "click me";
 
-// merge object accept 2 object and return a new object which contain all key values
-let ob = {
-    name: "gugu",
-    age: 23,
-    class: 5
-};
-let bb = {
-    name: "yabu",
-    age: 24,
-    class: 4
-};
-let mergeob = (ob,bb) => ({...ob,...bb});
-console.log(mergeob(ob,bb));
+btn.setAttribute("id", "btn");
+inner.setAttribute("placeholder", "username");
+
+btn.classList.add("text");
+
+let h2 = document.createElement("h1");
+h2.innerText = "DOM PRACTICE"
+h2.classList.add("under");
+document.querySelector("body").append(h2);
+
+let pp = document.createElement("p");
+pp.innerHTML = "Apna Collage <b>Delta</b> Practice";
+document.querySelector("body").append(pp);

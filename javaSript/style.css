@@ -1,0 +1,43 @@
+/* body {
+
+    font-family: Arial;
+}
+#mainimg{
+    width: 35%;
+}
+.box{
+    border: 0.25px solid black;
+    background-color: lightgray;
+    width: 200px;
+    padding: 1rem;
+}
+.boxlink{
+    text-decoration: none;
+}
+#description{
+    background-color: antiquewhite;
+}
+.oldImg{
+    height: 200px;
+    width: 200px;
+    margin-right: 1rem;
+} */
+
+.red{
+    color: red;
+}
+.green{
+    color: green;
+}
+.boder{
+    border: 2px solid black;
+    background-color:  pink;
+}
+.text{
+    background-color: blue;
+    color: white;
+}
+.under{
+    text-decoration: underline;
+    color: purple;
+}
