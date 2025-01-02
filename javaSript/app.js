@@ -1,21 +1,32 @@
 let btn = document.querySelector("button");
+let inp = document.querySelector("#inp");
+let list = document.querySelector("#list");
+btn.addEventListener("click", () => {
+    let item = document.createElement("li");
+    item.innerText = inp.value;
 
-btn.addEventListener("click", function() {
-    let h3 = document.querySelector("h3");
-    let randomcolor = getrandome();
-    h3.innerText = randomcolor;
+    let delbtn = document.createElement("button");
+    delbtn.innerText = "delete";
+    delbtn.classList.add(".del");
 
-    let div = document.querySelector("div");
-    div.style.backgroundColor = randomcolor;
+    list.appendChild(item);
+    item.appendChild(delbtn);
+    console.log(inp.value);
+    inp.value = "";
+})
 
-    console.log("colour updated");
+list.addEventListener("click", function(event) {
+    if (event.target.nodeName == "BUTTON") {
+        let item = event.target.parentElement;
+        item.remove();
+    }
 });
 
-function getrandome() {
-    let R =Math.floor(Math.random() * 255);
-    let G =Math.floor(Math.random() * 255);
-    let B =Math.floor(Math.random() * 255);
-
-    let color = `rgb(${R}, ${G}, ${B})`;
-    return color;
-}
+// let delbtns = document.querySelectorAll(".del");
+// for (delbtn of delbtns) {
+//     delbtn.addEventListener("click", function() {
+//         let par = this.parentElement;
+//         console.log(par);
+//         par.remove();
+//     })
+// }
