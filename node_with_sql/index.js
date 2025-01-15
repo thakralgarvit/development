@@ -4,6 +4,7 @@ const { faker } = require('@faker-js/faker');
 const mysql = require("mysql2");
 const path = require("path");
 const methodoverride = require("method-override");
+const { v4: uuidv4 } = require("uuid");
 
 app.use(methodoverride("_method"));
 app.use(express.urlencoded({ extended: true }));
@@ -107,6 +108,72 @@ app.listen("8080", () => {
     console.log("server is listening to 8080");
 });
 
+app.get("/user/new", (req, res) => {
+    res.render("new.ejs");
+});
+app.get("/new", (req, res) => {
+    res.render("new.ejs");
+});
+
+app.post("/user/new", (req, res) => {
+    let { username, email, password } = req.body;
+    let id = faker.string.uuid();
+    let q = `INSERT INTO user (id, username, email, password) VALUES ("${id}", "${username}", "${email}", "${password}")`;
+
+    try {
+        connection.query(q, (err, result) => {
+            if (err) throw err;
+            console.log("user added");
+            res.redirect("/user");
+        });
+    } catch (err) {
+        res.send("something went wroung in new user;");
+    }
+});
+
+app.get("/user/:id/delete", (req, res) => {
+    let { id } = req.params;
+    let q = `SELECT * FROM user WHERE id='${id}'`;
+
+    try{
+        connection.query(q, (err, result) => {
+            if(err) throw err;
+            let user = result[0];
+            res.render("delete.ejs", { user });
+        });
+    } catch (err) {
+        res.send("error while deleting");
+    }
+});
+
+app.delete("/user/:id", (req, res) => {
+    let { id } = req.params;
+    let { password } = req.body;
+    let q = `SELECT * FROM user WHERE id='${id}'`;
+
+    try {
+        connection.query(q, (err, result) => {
+            if (err) throw err;
+            let user = result[0];
+
+            if(user.password != password) {
+                res.send("wrong password");
+            } else {
+                let q2 = `DELETE FROM user WHERE id='${id}'`;
+                connection.query(q2,  (err,  result) => {
+                    if (err) throw err;
+                    else {
+                        console.log(result);
+                        console.log("account deleted");
+                        res.redirect("/user");
+                    }
+                });
+            }
+        });
+    } catch (err) {
+        console.log("error while deleting");
+    }
+});
 
 // try {
     //     connection.query(q, [data], (err, result) => {
