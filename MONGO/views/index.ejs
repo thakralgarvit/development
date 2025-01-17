@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Whatsapp</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>ALL CHATS!!</h2>
+    <form method="get" action="/chats/new">
+        <button>New Chat</button>
+    </form>
+    <br>
+    <% for (let chat of chats) { %>
+        <div class="chat">
+            <p>from: <%= chat.from %></p>
+            <p>to: <%= chat.to %></p>
+            <div class="msg">
+                <p><%= chat.message %></p>
+                <form method="get" action="/chats/<%= chat._id %>/edit">
+                    <button>Edit</button>
+                </form>
+                <form method="post" action="/chats/<%= chat._id %>?_method=DELETE">
+                    <button>Delete</button>
+                </form>
+            </div>
+            <hr>
+            <%= 
+            (new Date(chat.date)).getFullYear() + "-" + 
+            ((new Date(chat.date)).getMonth() + 1).toString().padStart(2, '0') + "-" + 
+            (new Date(chat.date)).getDate().toString().padStart(2, '0') + " /"%>
+            <%= (new Date(chat.date)).getHours().toString().padStart(2, '0') + ":" + 
+                (new Date(chat.date)).getMinutes().toString().padStart(2, '0') 
+            %>
+
+        </div>
+        <br><br>
+    <% } %>
+</body>
+</html>
